@@ -11,24 +11,32 @@ function writePassword() {
 
 // function to generate password
 function generatePassword(){
-  var length = passwordLength();
+  var originalLength = passwordLength();
   var upperLower = getUpperLower();
   var specialCharacter = getSpecialCharacter();
-  var randomNum = getRandomNum(length - upperLower.length - specialCharacter.length);
 
-  var password = upperLower.concat(specialCharacter);
-  for(var i = 0; i < randomNum.length; i++){
-    password = password.concat(randomNum[i]);
+  length = originalLength - upperLower.length;
+  length = length - specialCharacter.length;
+  var randomNum = getRandomNum(length);
+
+  var password = upperLower + specialCharacter;
+  for (rand of randomNum){
+    password += rand;
   }
-  return password;
+  return password.slice(0, originalLength);
 }
 
 // fucntion to get password length
 function passwordLength(){
   var passLength;
+  var bool = true;
   do {
-     passLength = parseInt(window.prompt("Please choose password length between 8 and 128"));
-  } while (passLength < 8 || passLength > 128);
+     passLength = window.prompt("Please choose password length between 8 and 128");
+     console.log(passLength.length);
+     if(passLength >= 8 || passLength <= 128){
+      bool = false;
+     }
+  } while (bool);
   return passLength;
 }
 
@@ -65,7 +73,7 @@ function getSpecialCharacter(){
 function getRandomNum(max){
   var randNum = [max];
   for (var i = 0; i < max; i++){
-    randNum[i] = Math.floor(Math.random() * max);
+    randNum[i] =(Math.floor(Math.random() * max));
   }
   return randNum;
 }
