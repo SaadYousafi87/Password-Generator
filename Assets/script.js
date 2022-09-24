@@ -58,6 +58,11 @@ function getSpecialCharacter(){
   return specialChar;
 }
 
+// function to generate random number
+function getRandomNum(max){
+  return Math.floor(Math.random() * max);
+}
+
 
 
 // Add event listener to generate button
