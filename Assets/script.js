@@ -14,12 +14,13 @@ function generatePassword(){
   var length = passwordLength();
   var upperLower = getUpperLower();
   var specialCharacter = getSpecialCharacter();
-  var randomNum = getRandomNum(length);
+  var randomNum = getRandomNum(length - upperLower.length - specialCharacter.length);
 
-  console.log(length);
-  console.log(upperLower);
-  console.log(specialCharacter);
-  console.log(randomNum);
+  var password = upperLower.concat(specialCharacter);
+  for(var i = 0; i < randomNum.length; i++){
+    password = password.concat(randomNum[i]);
+  }
+  return password;
 }
 
 // fucntion to get password length
