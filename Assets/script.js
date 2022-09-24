@@ -13,9 +13,11 @@ function writePassword() {
 function generatePassword(){
   var length = passwordLength();
   var upperLower = getUpperLower();
+  var specialCharacter = getSpecialCharacter();
 
   console.log(length);
   console.log(upperLower);
+  console.log(specialCharacter);
 }
 
 // fucntion to get password length
@@ -38,6 +40,22 @@ function getUpperLower(){
     }
   } while (bool);
   return caseLetter;
+}
+
+// function to get special character
+function getSpecialCharacter(){
+  var specialChar;
+  var characterArray = ["!", "#", "$", "%", "&", "'", "*", "-", "?", "@", "_"];
+  do{
+    var bool = true;
+    specialChar = window.prompt("Please choose cpecial character from {!, #, $, %, &, ', *, -, ?, @, _ }");
+    for (var i = 0; i < characterArray.length; i++){
+      if(specialChar == characterArray[i]){
+        bool = false;
+      }
+    }
+  } while (bool);
+  return specialChar;
 }
 
 
