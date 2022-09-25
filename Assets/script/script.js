@@ -15,7 +15,7 @@ function generatePassword(){
   var upperLower = getUpperLower();
   var specialCharacter = getSpecialCharacter();
 
-  length = originalLength - upperLower.length;
+  var length = originalLength - upperLower.length;
   length = length - specialCharacter.length;
   var randomNum = getRandomNum(length);
 
@@ -32,7 +32,6 @@ function passwordLength(){
   var bool = true;
   do {
      passLength = window.prompt("Please choose password length between 8 and 128");
-     console.log(passLength.length);
      if(passLength >= 8 || passLength <= 128){
       bool = false;
      }
