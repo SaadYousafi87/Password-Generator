@@ -4,8 +4,8 @@
 This project is to use JavaScript to take user input and then generate and display password.
 
 ## Credits
-Instructor Anthony Maddatu
-Tom Woods
+Instructor Anthony Maddatu\
+Tom Woods\
 UPenn team
 
 ## Acceptance Criteria
